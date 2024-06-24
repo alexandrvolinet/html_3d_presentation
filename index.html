@@ -10,6 +10,7 @@
       margin: 0;
       overflow-x: hidden;
       height: 200vh;
+      background-color: #010912; /* Set background color */
     }
     #bg {
       position: fixed;
@@ -21,8 +22,31 @@
     #video {
       display: none;
     }
-    #videoCanvas {
-      display: none;
+    #button {
+      position: fixed;
+      top: 70%;
+      left: 50.5%;
+      transform: translate(-50%, -50%);
+      display: none; /* Initially hidden */
+      padding: 20px 50px;
+      font-size: 16px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      box-shadow: 0px 0px 25px 0px #007bff;
+    }
+    #button.pulsate {
+      animation: pulsate 1.2s infinite;
+    }
+    @keyframes pulsate {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.05); }
+      100% { transform: translate(-50%, -50%) scale(1); }
     }
   </style>
 </head>
@@ -31,7 +55,7 @@
   <video id="video" playsinline autoplay loop muted>
     <source src="video.mp4" type="video/mp4">
   </video>
-  <canvas id="videoCanvas"></canvas>
+  <a id="button" class="pulsate" href="https://t.me/consensus_designer">@consensus_designer</a>
   <script type="module" src="/main.js"></script>
 </body>
 </html>
